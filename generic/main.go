@@ -14,8 +14,12 @@ func main() {
 
 }
 
+type constraintCustom interface {
+	int | string
+}
+
 // para nao ter de criar duas funcoes para fazer do tipo int e string, o generic metodo e esse [T int | T string]
-func reverse[T int | string](slice []T) []T {
+func reverse[T constraintCustom](slice []T) []T {
 	newInts := make([]T, len(slice))
 
 	newIntsLen := len(slice) - 1
